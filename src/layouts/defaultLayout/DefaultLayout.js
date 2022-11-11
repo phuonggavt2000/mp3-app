@@ -1,6 +1,7 @@
 import Control from '../components/Control/Control';
 import LeftSidebar from '../components/LeftSidebar/LeftSidebar';
 import { Outlet } from 'react-router-dom';
+import Player from '../components/Player/Player';
 
 function DefaultLayout() {
     return (
@@ -13,8 +14,8 @@ function DefaultLayout() {
                 <div className="content-container">
                     <Outlet></Outlet>
                 </div>
+                <Player />
             </div>
-            <div className="play"></div>
         </div>
     );
 }

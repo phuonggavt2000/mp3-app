@@ -1,0 +1,23 @@
+.wrapper {
+    background-color: var(--layout-bg);
+    height: var(--control-playMusic);
+    position: fixed;
+    inset: auto 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .left {
+        height: 100%;
+        max-width: 30%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .img {
+            flex-shrink: 0;
+            width: 64px;
+            height: 64px;
+        }
+    }
+}
