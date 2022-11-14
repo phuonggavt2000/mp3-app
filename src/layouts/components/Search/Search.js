@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import { MdOutlineShowChart } from 'react-icons/md';
 import { useEffect, useState, useRef } from 'react';
-import * as homeRequest from '../../../services/homeService';
-import httpRequest from '../../../utils/httpRequest';
 
 const cx = classNames.bind(styles);
 

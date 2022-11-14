@@ -1,6 +1,5 @@
-function Category({ className }) {
-    console.log(className);
-    return <h2 className="Category">Category</h2>;
+function Category() {
+    return <h1 className="Category">Category</h1>;
 }
 
 export default Category;

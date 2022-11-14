@@ -33,6 +33,7 @@ body ::-webkit-scrollbar-track {
     --alpha-bg: hsla(0, 0%, 100%, 0.1);
     --create-list-height: 54px;
     --search-bg: #34224f;
+    --text-secondary: hsla(0, 0%, 100%, 0.5);
 }
 
 body {

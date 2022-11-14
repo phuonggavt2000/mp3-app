@@ -2,6 +2,9 @@ import Control from '../components/Control/Control';
 import LeftSidebar from '../components/LeftSidebar/LeftSidebar';
 import { Outlet } from 'react-router-dom';
 import Player from '../components/Player/Player';
+import { createContext } from 'react';
+
+export const ThemeContext = createContext();
 
 function DefaultLayout() {
     return (
