@@ -1,5 +1,11 @@
+import Slides from '../../layouts/components/Slides/Slides';
+
 function Discovery() {
-    return <h2>Discovery</h2>;
+    return (
+        <div>
+            <Slides />
+        </div>
+    );
 }
 
 export default Discovery;

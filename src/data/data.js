@@ -14,6 +14,7 @@ import { RiTShirtAirLine, RiVipLine } from 'react-icons/ri';
 import { FiUpload } from 'react-icons/fi';
 import { CgProfile } from 'react-icons/cg';
 import config from '../config';
+import images from '../assest/images/images';
 
 export const sidebar = {
     medias: [
@@ -91,3 +92,12 @@ export const searchContent = {
         },
     ],
 };
+
+export const slides = [
+    { banner: images.daivu },
+    { banner: images.chung },
+    { banner: images.huongly },
+    { banner: images.kim },
+    { banner: images.mono },
+    { banner: images.vpop },
+];
