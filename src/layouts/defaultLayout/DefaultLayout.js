@@ -12,12 +12,13 @@ function DefaultLayout() {
     const defaultData = {
         banner: [],
     };
-    console.log('ok');
     const [data, setData] = useState(defaultData);
+    console.log('data', data);
 
     useEffect(() => {
         const getData = async () => {
             const items = await home();
+            console.log('items', items);
 
             const banner = items.find((item) => item.viewType === 'slider');
 

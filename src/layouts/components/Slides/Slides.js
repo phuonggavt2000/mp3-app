@@ -13,8 +13,6 @@ const cx = classNames.bind(styles);
 function Slides() {
     const datas = useContext(ThemeContext);
     const items = datas.banner.items || data.slides;
-    console.log(' datas.banner', datas.banner);
-    console.log('data.slides', data.slides);
 
     var settings = {
         dots: true,
@@ -55,12 +53,22 @@ function Slides() {
         ],
     };
 
+    const getDetail = (id) => {
+        console.log(id);
+    };
+
     return (
         <div className={cx('wrapper')}>
             {items && (
                 <Slider {...settings}>
                     {items.map((slide, index) => (
-                        <div key={index} className={cx('item')}>
+                        <div
+                            key={index}
+                            className={cx('item')}
+                            onClick={() => {
+                                getDetail(slide.encodeId);
+                            }}
+                        >
                             <Image src={slide.banner} alt="ok" classNames="rounded" />
                         </div>
                     ))}

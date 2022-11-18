@@ -34,6 +34,7 @@ body ::-webkit-scrollbar-track {
     --create-list-height: 54px;
     --search-bg: #34224f;
     --text-secondary: hsla(0, 0%, 100%, 0.5);
+    --border-primary: hsla(0, 0%, 100%, 0.1);
 }
 
 body {
@@ -71,6 +72,7 @@ img {
 }
 
 .content-container {
+    margin: 0px 50px;
     overflow-y: overlay;
     margin-top: var(--height-content-header);
 }
@@ -213,7 +215,7 @@ img {
     display: flex;
     justify-content: space-between;
     height: 100%;
-    margin: 0 30px;
+    margin: 0 50px;
 }
 
 .btn.control_previous {
