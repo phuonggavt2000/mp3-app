@@ -11,6 +11,7 @@ export const ThemeContext = createContext();
 function DefaultLayout() {
     const defaultData = {
         banner: [],
+        newMusic: [],
     };
     const [data, setData] = useState(defaultData);
     console.log('data', data);
@@ -21,8 +22,10 @@ function DefaultLayout() {
             console.log('items', items);
 
             const banner = items.find((item) => item.viewType === 'slider');
+            const newMusic = items.find((item) => item.sectionType === 'new-release');
+            console.log(newMusic);
 
-            setData({ ...data, banner });
+            setData({ ...data, banner, newMusic });
         };
 
         getData();

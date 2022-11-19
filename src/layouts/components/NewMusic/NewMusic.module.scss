@@ -1,6 +1,7 @@
 .wrapper {
     margin: 0 12px;
     margin-top: 30px;
+    margin-bottom: 20px;
 
     .title {
         font-size: 20px;
@@ -10,6 +11,8 @@
 
     .control {
         display: flex;
+        justify-content: flex-start;
+        width: 100%;
         font-size: 12px;
         margin-top: 12px;
 
@@ -26,6 +29,29 @@
             text-transform: uppercase;
             margin-right: 15px;
             cursor: pointer;
+
+            &:hover {
+                color: rgb(232, 228, 228);
+            }
         }
+
+        .all {
+            margin-left: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+                color: var(--purple-primary) !important;
+            }
+
+            .all_title {
+                margin-right: 6px;
+            }
+        }
+    }
+
+    .musics {
+        margin: 12px 0;
     }
 }

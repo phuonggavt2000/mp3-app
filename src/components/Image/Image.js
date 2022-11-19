@@ -1,4 +1,4 @@
-function Image({ src, alt, classNames }) {
+function Image({ src, alt = 'error', classNames = 'rounded' }) {
     return <img src={src} alt={alt} className={classNames} />;
 }
 
