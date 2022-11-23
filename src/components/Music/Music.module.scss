@@ -6,12 +6,30 @@
     align-items: center;
     position: relative;
 
-    &.active,
     &:hover {
         background-color: var(--alpha-bg);
 
         .play {
             display: flex !important;
+        }
+    }
+
+    &.active {
+        background-color: var(--alpha-bg);
+
+        .play {
+            display: none !important;
+        }
+
+        .control {
+            display: block !important;
+        }
+
+        .img {
+            &.disable {
+                pointer-events: none;
+                user-select: none;
+            }
         }
     }
 
@@ -22,7 +40,8 @@
         position: relative;
         cursor: pointer;
 
-        .play {
+        .play,
+        .control {
             position: absolute;
             display: none;
             top: 50%;

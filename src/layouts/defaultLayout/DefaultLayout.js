@@ -4,33 +4,89 @@ import { Outlet } from 'react-router-dom';
 import Player from '../components/Player/Player';
 import { createContext, useEffect } from 'react';
 import { useState } from 'react';
-import { home } from '../../services/homeService';
+import { getHome, getInfo, getSong } from '../../services/homeService';
+import ModalSm from '../../components/Modal/Modal';
 
 export const ThemeContext = createContext();
 
 function DefaultLayout() {
+    const [smShow, setSmShow] = useState(false);
+
+    const handleChangeSong = (id) => {
+        const getData = async () => {
+            setData((prev) => {
+                return {
+                    ...prev,
+                    loading: true,
+                };
+            });
+
+            const infoSong = await getInfo(id);
+            const song = await getSong(id);
+            const dataSong = song.data;
+            if (dataSong.err === 0) {
+                const { thumbnailM, title, artistsNames, duration } = infoSong.data.data;
+                const audio = dataSong.data[128];
+                const dataAudio = {
+                    img: thumbnailM,
+                    name: title,
+                    adult: artistsNames,
+                    linkAudio: audio,
+                    time: duration,
+                };
+
+                setData((prev) => {
+                    return {
+                        ...prev,
+                        player: dataAudio,
+                        playing: true,
+                        loading: false,
+                    };
+                });
+            } else {
+                setSmShow(true);
+            }
+        };
+
+        getData();
+    };
+
+    const controlMusic = () => {
+        setData((prev) => {
+            const playing = !prev.playing;
+            return { ...prev, playing: playing, loading: false };
+        });
+    };
+
     const defaultData = {
         banner: [],
         newMusic: [],
+        player: {},
+        methodRenderSong: handleChangeSong,
+        playing: false,
+        loading: true,
+        methodControlMusic: controlMusic,
     };
+
     const [data, setData] = useState(defaultData);
-    console.log('data', data);
 
     useEffect(() => {
         const getData = async () => {
-            const items = await home();
+            const items = await getHome();
             console.log('items', items);
 
             const banner = items.find((item) => item.viewType === 'slider');
             const newMusic = items.find((item) => item.sectionType === 'new-release');
-            console.log(newMusic);
+            const playList = items.find((item) => item.sectionType === 'playlist');
+            console.log('playList', playList);
 
-            setData({ ...data, banner, newMusic });
+            setData({ ...data, banner, newMusic, playList: playList });
         };
 
         getData();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
     return (
         <ThemeContext.Provider value={data}>
             <div className="d-flex">
@@ -45,6 +101,7 @@ function DefaultLayout() {
                     <Player />
                 </div>
             </div>
+            <ModalSm smShow={smShow} onHide={() => setSmShow(false)} />
         </ThemeContext.Provider>
     );
 }

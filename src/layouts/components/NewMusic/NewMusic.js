@@ -14,7 +14,11 @@ const cx = classNames.bind(styles);
 
 function NewMusic() {
     const data = useContext(ThemeContext);
+    console.log('data', data.loading);
+
+    const [active, setActive] = useState('all');
     const [music, setMusic] = useState(null);
+    const [activeMusic, setActiveMusic] = useState(false);
 
     useEffect(() => {
         setMusic(data.newMusic.items);
@@ -22,23 +26,22 @@ function NewMusic() {
 
     const controls = [
         {
-            id: 1,
+            type: 'all',
             title: 'TẤT CẢ',
         },
         {
-            id: 2,
+            type: 'vPop',
             title: 'Việt Nam',
         },
         {
-            id: 3,
+            type: 'others',
             title: 'Quốc tế',
         },
     ];
 
-    const [active, setActive] = useState(0);
-
-    const updateActive = (id) => {
-        setActive(id);
+    const updateActive = (type) => {
+        setActive(type);
+        setActiveMusic(false);
     };
 
     return (
@@ -48,10 +51,10 @@ function NewMusic() {
                 {controls.map((value, index) => (
                     <div
                         className={cx('musicType', {
-                            active: value.id === active,
+                            active: value.type === active,
                         })}
                         onClick={() => {
-                            updateActive(value.id);
+                            updateActive(value.type);
                         }}
                         key={index}
                     >
@@ -66,15 +69,24 @@ function NewMusic() {
             </div>
             {music && (
                 <div className={cx('musics')}>
-                    <Row className="g-2">
-                        {music.all.map((value, index) => (
+                    <Row className="gy-2 gx-4">
+                        {music[active].map((value, index) => (
                             <Col key={index} xs={6} lg={4}>
                                 <Music
                                     name={value.title}
                                     adult={value.artistsNames}
                                     img={value.thumbnail}
                                     time={moment.unix(value.releaseDate).fromNow()}
-                                    active
+                                    onClick={() => {
+                                        if (value.title === data.player.name) {
+                                            data.methodControlMusic();
+                                        } else {
+                                            setActiveMusic(index);
+                                            data.methodRenderSong(value.encodeId);
+                                        }
+                                    }}
+                                    active={activeMusic}
+                                    index={index}
                                 />
                             </Col>
                         ))}

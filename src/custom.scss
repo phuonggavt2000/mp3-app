@@ -1,0 +1,7 @@
+/* make the customizations */
+$theme-colors: ();
+$modal-content-bg: #34224f;
+$secondary: hsla(0, 0%, 100%, 0.5);
+
+/* import bootstrap to set changes */
+@import '~bootstrap/scss/bootstrap';

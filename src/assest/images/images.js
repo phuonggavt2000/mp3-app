@@ -10,6 +10,7 @@ const images = {
     chung: require('./imgs/chungDuy.jpg'),
     vpop: require('./imgs/vpop.jpg'),
     daivu: require('./imgs/daivu.jpg'),
+    namcu: require('./imgs/5cu.webp'),
 };
 
 export default images;

@@ -1,0 +1,45 @@
+.wrapper {
+    overflow: hidden;
+    padding: 0 12px;
+    position: relative;
+
+    .desc {
+        font-size: 0.9rem;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        color: var(--text-secondary);
+    }
+    .wrapper_img {
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+        cursor: pointer;
+
+        &:hover {
+            .img {
+                transform: scale(1.1);
+            }
+
+            .control {
+                position: absolute;
+                inset: 0;
+                z-index: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba($color: #302f2f, $alpha: 0.5);
+            }
+        }
+
+        .img {
+            transition: transform 0.4s linear;
+            margin-bottom: 12px;
+            border-radius: 4px;
+        }
+
+        .control {
+            display: none;
+        }
+    }
+}

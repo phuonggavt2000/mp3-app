@@ -41,6 +41,8 @@ body {
     background-color: var(--layout-bg) !important;
     color: white !important;
     font-family: 'Nunito', Arial, Helvetica, sans-serif !important;
+    box-sizing: border-box;
+    font-size: 65%;
 }
 
 p,
@@ -136,7 +138,7 @@ img {
 }
 
 .nav .sidebar-item.nav-link:hover {
-    color: white !important;
+    color: #ffff !important;
 }
 
 .nav .sidebar-item.nav-link.active {
@@ -149,6 +151,7 @@ img {
     padding: 0 10px;
     font-size: 13px;
     font-weight: 600;
+    color: currentColor;
 }
 
 .sidebar-container {
@@ -290,4 +293,8 @@ img {
 
 :focus-visible {
     outline: none;
+}
+
+.modal-header {
+    border: none !important;
 }

@@ -1,6 +1,6 @@
 import * as httpRequest from '../utils/httpRequest';
 
-export const home = async () => {
+export const getHome = async () => {
     try {
         const res = await httpRequest.get('/home');
         return res.data.data.items;
@@ -9,10 +9,25 @@ export const home = async () => {
     }
 };
 
-export const getSong = async () => {
+export const getSong = async (sid) => {
     try {
         const res = await httpRequest.get('/song', {
-            id: '67WIO6CF',
+            params: {
+                id: sid,
+            },
+        });
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getInfo = async (sid) => {
+    try {
+        const res = await httpRequest.get('/infosong', {
+            params: {
+                id: sid,
+            },
         });
         return res;
     } catch (error) {
