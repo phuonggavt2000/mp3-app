@@ -69,7 +69,7 @@ function Slides() {
                                 getDetail(slide.encodeId);
                             }}
                         >
-                            <Image src={slide.banner} alt="ok" classNames="rounded" />
+                            <Image src={slide.banner} alt="ok" />
                         </div>
                     ))}
                 </Slider>

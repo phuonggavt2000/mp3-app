@@ -10,6 +10,7 @@ import Radio from '../pages/Radio/Radio';
 import Top100 from '../pages/Top100/Top100';
 import ZingChart from '../pages/ZingChart/ZingChart';
 import Individual from '../pages/Individual/Individual';
+import Album from '../pages/Album/Album';
 
 const publicRoutes = [
     {
@@ -51,6 +52,10 @@ const publicRoutes = [
     {
         path: config.routes.individual,
         component: Individual,
+    },
+    {
+        path: config.routes.album,
+        component: Album,
     },
 ];
 

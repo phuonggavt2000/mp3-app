@@ -2,6 +2,7 @@
     overflow: hidden;
     padding: 0 12px;
     position: relative;
+    margin-top: 30px;
 
     .desc {
         font-size: 0.9rem;
@@ -13,6 +14,7 @@
     .wrapper_img {
         position: relative;
         border-radius: 4px;
+        margin-bottom: 12px;
         overflow: hidden;
         cursor: pointer;
 
@@ -34,12 +36,19 @@
 
         .img {
             transition: transform 0.4s linear;
-            margin-bottom: 12px;
             border-radius: 4px;
         }
 
         .control {
             display: none;
+        }
+    }
+
+    .link {
+        font-weight: 600;
+
+        &:hover {
+            color: var(--purple-primary) !important;
         }
     }
 }

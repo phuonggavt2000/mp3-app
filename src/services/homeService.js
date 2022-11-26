@@ -3,6 +3,7 @@ import * as httpRequest from '../utils/httpRequest';
 export const getHome = async () => {
     try {
         const res = await httpRequest.get('/home');
+        console.log(res);
         return res.data.data.items;
     } catch (error) {
         console.log(error);
@@ -29,6 +30,7 @@ export const getInfo = async (sid) => {
                 id: sid,
             },
         });
+        console.log(res);
         return res;
     } catch (error) {
         console.log(error);

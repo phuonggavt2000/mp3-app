@@ -9,6 +9,7 @@ const routes = {
     top100: '/top100',
     zingChart: '/zingchart',
     individual: '/individual',
+    album: '/album/:nameAlbum/:id',
 };
 
 export default routes;

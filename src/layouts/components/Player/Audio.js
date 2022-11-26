@@ -17,7 +17,6 @@ function ControlAudio({ duration, audio, data }) {
     audio.ontimeupdate = (e) => {
         const time = moment.utc(moment.duration(audio.currentTime, 'seconds').asMilliseconds()).format('mm:ss');
         let CurrentPercent = (audio.currentTime / audio.duration) * 100;
-        console.log('time', time);
         setCurrentTime(time);
         if (!isMouseDown) {
             setRange(CurrentPercent);
