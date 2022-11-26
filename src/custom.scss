@@ -1,5 +1,24 @@
 /* make the customizations */
-$theme-colors: ();
+
+$theme-colors: (
+    'primary': #9b4de0,
+    'alpha': #ffffff1a,
+    'transparent': transparent,
+    'border': #ffffff1a,
+);
+
+$font-sizes: (
+    7: 13px,
+);
+
+.btn-bd-icon-hover {
+    --bs-btn-hover-bg: var(--alpha-bg) !important;
+}
+
+.border-color-album {
+    border-bottom: 1px solid #ffffff1a;
+}
+
 $modal-content-bg: #34224f;
 $secondary: hsla(0, 0%, 100%, 0.5);
 

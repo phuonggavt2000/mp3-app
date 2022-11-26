@@ -34,7 +34,7 @@ body ::-webkit-scrollbar-track {
     --create-list-height: 54px;
     --search-bg: #34224f;
     --text-secondary: hsla(0, 0%, 100%, 0.5);
-    --border-primary: hsla(0, 0%, 100%, 0.1);
+    --border-primary: #ffffff1a;
 }
 
 body {
@@ -64,6 +64,11 @@ img {
 
 .prev {
     color: white;
+}
+
+.link-hover-primary:hover {
+    color: var(--purple-primary) !important;
+    text-decoration: underline !important;
 }
 
 .content-header {
