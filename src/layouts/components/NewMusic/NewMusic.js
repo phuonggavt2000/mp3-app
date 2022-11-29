@@ -14,7 +14,6 @@ const cx = classNames.bind(styles);
 
 function NewMusic() {
     const data = useContext(ThemeContext);
-    console.log('data', data.loading);
 
     const [active, setActive] = useState('all');
     const [music, setMusic] = useState(null);

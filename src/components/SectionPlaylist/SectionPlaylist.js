@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function SectionPlaylist({ title, playlist }) {
+function SectionPlaylist({ title, playlist, getPlaylist, id }) {
     return (
         <div className={cx('wrapper')}>
             {playlist && (
@@ -17,7 +17,13 @@ function SectionPlaylist({ title, playlist }) {
                         {playlist.map((value, index) => (
                             <Col key={index}>
                                 <div className="d-flex flex-column">
-                                    <Link to={value.link} className={cx('wrapper_img')} onClick={() => {}}>
+                                    <Link
+                                        to={value.link}
+                                        className={cx('wrapper_img')}
+                                        onClick={() => {
+                                            getPlaylist(value.encodeId);
+                                        }}
+                                    >
                                         <img alt="error" src={value.thumbnailM} className={cx('img')} />
                                         <div className={cx('control')}>
                                             {<icons.AiOutlineHeart className="fs-3" />}

@@ -1,14 +1,30 @@
 import Image from '../../components/Image/Image';
-import images from '../../assest/images/images';
 import { Link } from 'react-router-dom';
 import icons from '../../utils/Icons';
 import { Button, Row, Col, Spinner } from 'react-bootstrap';
 import styles from './Album.module.scss';
 import classNames from 'classnames/bind';
+import durationFormat from '../../utils/durationFormat';
+import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-function Music({ loading, playing, active }) {
+function Music({
+    loading,
+    playing,
+    active,
+    img,
+    duration,
+    artists = [],
+    title,
+    album = {},
+    methodGetPlaylist,
+    code,
+    onClick,
+}) {
+    const convertDuration = durationFormat(duration);
+    const [id, setId] = useState(code);
+
     return (
         <Col sm={12} className="border-color-album">
             <div
@@ -18,9 +34,14 @@ function Music({ loading, playing, active }) {
             >
                 <Row>
                     <Col sm={6}>
-                        <div className="d-flex align-items-center">
-                            <div className={cx('img')}>
-                                <Image src={images.chung} />
+                        <div className="d-flex align-items-center ">
+                            <div
+                                className={cx('img', {
+                                    disable: loading,
+                                })}
+                                onClick={onClick}
+                            >
+                                <Image src={img} />
                                 <div className={cx('play')}>{<icons.BsPlayFill />}</div>
 
                                 <div className={cx('control')}>
@@ -30,21 +51,43 @@ function Music({ loading, playing, active }) {
                                 </div>
                             </div>
                             <div className="d-flex flex-column my-2 ms-2">
-                                <span className="text-white">Fiction</span>
-                                <Link className="text-secondary link-hover-primary">Beast</Link>
+                                <span className="text-white">{title}</span>
+                                <div className="d-flex">
+                                    {artists.map((artist, index) => (
+                                        <Link
+                                            key={index}
+                                            className="text-secondary fs-8 link-hover-primary text-nowrap me-1"
+                                        >
+                                            {artist.name}
+                                        </Link>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </Col>
                     <Col sm={4}>
                         {' '}
                         <div className="d-flex h-100 align-items-center">
-                            <Link className="text-secondary d-block link-hover-primary">Fiction and fact</Link>
+                            <Link
+                                to={album.link}
+                                className="text-secondary  d-block link-hover-primary"
+                                onClick={() => {
+                                    const isAlbum = id === album.encodeId;
+                                    setId(album.encodeId);
+
+                                    if (!isAlbum) {
+                                        methodGetPlaylist(album.encodeId);
+                                    }
+                                }}
+                            >
+                                {album.title}
+                            </Link>
                         </div>
                     </Col>
                     <Col sm={2}>
                         {' '}
                         <div className="d-flex h-100 align-items-center justify-content-start">
-                            <span className={cx('time')}>000</span>
+                            <span className={cx('time')}>{convertDuration}</span>
                             <div className={cx('plush')}>
                                 <Button variant="transparent" className="rounded-pill btn-bd-icon-hover">
                                     <icons.GiMicrophone />

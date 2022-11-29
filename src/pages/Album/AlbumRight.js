@@ -2,25 +2,31 @@ import styles from './Album.module.scss';
 import classNames from 'classnames/bind';
 
 import { Row, Col } from 'react-bootstrap';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { ThemeContext } from '../../layouts/defaultLayout/DefaultLayout';
 import Music from './Music';
 
 const cx = classNames.bind(styles);
 
-function AlbumRight() {
-    const { loading, playing } = useContext(ThemeContext);
+function AlbumRight({ songs = [], decs, code }) {
+    const { loading, playing, methodGetPlaylist, methodRenderSong, methodControlMusic, player } =
+        useContext(ThemeContext);
+    const [active, setActive] = useState(false);
+
+    const handleActive = (index) => {
+        setActive(index);
+    };
 
     return (
         <div className={cx('album_right')}>
             <div>
-                <span className="text-secondary fs-6 me-2">Lựa lời</span>
-                <span>The hệ gen 2 bùng nổ với các nhóm nhjac 2n1</span>
+                <span className="text-secondary fs-6 me-2">Lời tựa</span>
+                <span>{decs}</span>
             </div>
 
-            <div className="text-secondary fs-7 fw-semibold border-secondary my-3">
+            <div className="text-secondary fs-7 border-secondary my-3">
                 <Row className="g-0 ">
-                    <Col sm={12} className="border-color-album p-2">
+                    <Col sm={12} className="border-color-album p-2 fw-semibold ">
                         <Row>
                             <Col sm={6}>
                                 <span>Bài hát</span>
@@ -30,8 +36,32 @@ function AlbumRight() {
                         </Row>
                     </Col>
 
-                    <Music loading={loading} playing={playing} />
-                    <Music loading={loading} playing={playing} />
+                    {songs.map((song, index) => {
+                        const isActive = index === active;
+                        return (
+                            <Music
+                                key={index}
+                                duration={song.duration}
+                                img={song.thumbnail}
+                                artists={song.artists}
+                                title={song.title}
+                                loading={loading}
+                                playing={playing}
+                                album={song.album}
+                                methodGetPlaylist={methodGetPlaylist}
+                                code={code}
+                                active={isActive}
+                                onClick={() => {
+                                    if (song.title === player.name) {
+                                        methodControlMusic();
+                                    } else {
+                                        handleActive(index);
+                                        methodRenderSong(song.encodeId);
+                                    }
+                                }}
+                            />
+                        );
+                    })}
                 </Row>
             </div>
         </div>

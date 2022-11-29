@@ -17,7 +17,7 @@ function Discovery() {
         <div>
             <Slides />
             <NewMusic />
-            <SectionPlaylist title={playlist.title} playlist={playlist.items} />
+            <SectionPlaylist title={playlist.title} playlist={playlist.items} getPlaylist={data.methodGetPlaylist} />
         </div>
     );
 }

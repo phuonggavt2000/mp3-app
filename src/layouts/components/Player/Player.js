@@ -15,10 +15,9 @@ const cx = classNames.bind(styles);
 
 function Player() {
     const data = useContext(ThemeContext);
-    const { img, name, adult, linkAudio, time = 179 } = data.player;
+    const { img, name, adult, linkAudio, time = 177 } = data.player;
 
     const [audio] = useState(new Audio(vipAudio.yeulacuoi));
-    console.log('audio', audio.duration);
     const [playing, setPlaying] = useState(data.playing);
 
     const toggle = () => {

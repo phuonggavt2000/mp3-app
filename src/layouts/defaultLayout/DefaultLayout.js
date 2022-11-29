@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Player from '../components/Player/Player';
 import { createContext, useEffect } from 'react';
 import { useState } from 'react';
-import { getInfo, getSong } from '../../services/homeService';
+import { getDetailPlaylist, getInfo, getSong } from '../../services/homeService';
 import ModalSm from '../../components/Modal/Modal';
 import { dataHome } from '../../data/data';
 
@@ -47,6 +47,13 @@ function DefaultLayout() {
                 });
             } else {
                 setSmShow(true);
+                setData((prev) => {
+                    return {
+                        ...prev,
+                        loading: false,
+                        playing: false,
+                    };
+                });
             }
         };
 
@@ -60,25 +67,43 @@ function DefaultLayout() {
         });
     };
 
-    const updateActiveSidebar = (path) => {
+    const getPlaylist = (id) => {
         setData((prev) => {
             return {
                 ...prev,
-                path: path,
+                loadPage: true,
             };
         });
+
+        const getData = async () => {
+            const detailPlaylist = await getDetailPlaylist(id);
+
+            setData((prev) => {
+                return {
+                    ...prev,
+                    detailPlaylist: detailPlaylist.data.data,
+                    loadPage: false,
+                };
+            });
+        };
+
+        getData();
     };
 
     const defaultData = {
+        player: {},
+        detailPlaylist: {},
         banner: [],
         newMusic: [],
-        player: {},
         playlist: [],
+        music: [],
         playing: false,
         loading: true,
+        loadPage: false,
         methodRenderSong: handleChangeSong,
         methodControlMusic: controlMusic,
-        methodUpdateActive: updateActiveSidebar,
+        methodGetPlaylist: getPlaylist,
+        currentMusic: 0,
     };
 
     const [data, setData] = useState(defaultData);
@@ -90,7 +115,6 @@ function DefaultLayout() {
             const banner = items.find((item) => item.viewType === 'slider');
             const newMusic = items.find((item) => item.sectionType === 'new-release');
             const playList = items.find((item) => item.sectionType === 'playlist');
-            console.log('playList', playList);
 
             setData({ ...data, banner, newMusic, playlist: playList });
         };

@@ -53,9 +53,7 @@ function Slides() {
         ],
     };
 
-    const getDetail = (id) => {
-        console.log(id);
-    };
+    const getDetail = (id) => {};
 
     return (
         <div className={cx('wrapper')}>

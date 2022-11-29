@@ -9,6 +9,7 @@ function ControlAudio({ duration, audio, data }) {
     const toltalTime = moment.utc(moment.duration(duration, 'seconds').asMilliseconds()).format('mm:ss');
 
     const [range, setRange] = useState(0);
+
     const [currentTime, setCurrentTime] = useState(
         moment.utc(moment.duration(0, 'seconds').asMilliseconds()).format('mm:ss'),
     );
@@ -20,6 +21,10 @@ function ControlAudio({ duration, audio, data }) {
         setCurrentTime(time);
         if (!isMouseDown) {
             setRange(CurrentPercent);
+        }
+
+        if (!CurrentPercent) {
+            setRange(`${CurrentPercent}`);
         }
     };
 
