@@ -1,23 +1,19 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
+import Artist from '../../components/Artist/Artist';
 import SectionPlaylist from '../../components/SectionPlaylist/SectionPlaylist';
 import NewMusic from '../../layouts/components/NewMusic/NewMusic';
 import Slides from '../../layouts/components/Slides/Slides';
-import { ThemeContext } from '../../layouts/defaultLayout/DefaultLayout';
+import { ThemeContext } from '../../layouts/DefaultLayout/DefaultLayout';
 
 function Discovery() {
-    const data = useContext(ThemeContext);
-    const [playlist, setPlaylist] = useState({});
-    useEffect(() => {
-        if (data.playlist) {
-            setPlaylist(data.playlist);
-        }
-    }, [data.playlist]);
+    const { playlist, mix, methodGetPlaylist } = useContext(ThemeContext);
 
     return (
         <div>
             <Slides />
             <NewMusic />
-            <SectionPlaylist title={playlist.title} playlist={playlist.items} getPlaylist={data.methodGetPlaylist} />
+            <SectionPlaylist title={playlist.title} playlist={playlist.items} getPlaylist={methodGetPlaylist} />
+            <Artist title={mix.title} artists={mix.items} getPlaylist={methodGetPlaylist} />
         </div>
     );
 }

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function SectionPlaylist({ title, playlist, getPlaylist, id }) {
+function SectionPlaylist({ title, playlist, getPlaylist }) {
     return (
         <div className={cx('wrapper')}>
             {playlist && (
@@ -31,7 +31,15 @@ function SectionPlaylist({ title, playlist, getPlaylist, id }) {
                                             {<icons.FiMoreHorizontal className="fs-3" />}
                                         </div>
                                     </Link>
-                                    <Link className={cx('link')}>{value.title}</Link>
+                                    <Link
+                                        to={value.link}
+                                        className={cx('link')}
+                                        onClick={() => {
+                                            getPlaylist(value.encodeId);
+                                        }}
+                                    >
+                                        {value.title}
+                                    </Link>
                                     <span className={cx('desc')}>{value.sortDescription}</span>
                                 </div>
                             </Col>

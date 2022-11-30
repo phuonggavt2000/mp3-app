@@ -1,18 +1,18 @@
-import { AiOutlineLeft } from 'react-icons/ai';
-import styles from './Slider.module.scss';
+import { AiOutlineRight } from 'react-icons/ai';
+import styles from './NextArrow.module.scss';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-function PrevArrow(props) {
+function NextArrow(props) {
     const { className, onClick } = props;
     return (
-        <div className={cx('prev')}>
+        <div className={cx('next')}>
             <div className={className} onClick={onClick}>
-                <AiOutlineLeft />
+                <AiOutlineRight />
             </div>
         </div>
     );
 }
 
-export default PrevArrow;
+export default NextArrow;

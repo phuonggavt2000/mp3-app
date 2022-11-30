@@ -6,7 +6,7 @@ import { createContext, useEffect } from 'react';
 import { useState } from 'react';
 import { getDetailPlaylist, getInfo, getSong } from '../../services/homeService';
 import ModalSm from '../../components/Modal/Modal';
-import { dataHome } from '../../data/data';
+import dataHome from '../../data/dataHome';
 
 export const ThemeContext = createContext();
 
@@ -93,10 +93,11 @@ function DefaultLayout() {
     const defaultData = {
         player: {},
         detailPlaylist: {},
+        mix: {},
         banner: [],
         newMusic: [],
         playlist: [],
-        music: [],
+        musics: [],
         playing: false,
         loading: true,
         loadPage: false,
@@ -111,12 +112,15 @@ function DefaultLayout() {
     useEffect(() => {
         const getData = async () => {
             const items = dataHome.data.items;
+            console.log('items', items);
 
-            const banner = items.find((item) => item.viewType === 'slider');
+            const banner = items.find((item) => item.sectionType === 'banner');
             const newMusic = items.find((item) => item.sectionType === 'new-release');
             const playList = items.find((item) => item.sectionType === 'playlist');
+            const mix = items.find((item) => item.sectionType === 'mix');
+            console.log('mix', mix);
 
-            setData({ ...data, banner, newMusic, playlist: playList });
+            setData({ ...data, banner, newMusic, playlist: playList, mix: mix });
         };
 
         getData();

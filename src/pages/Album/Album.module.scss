@@ -5,6 +5,12 @@
 .wrapper {
     overflow: hidden;
     height: calc(100vh - (var(--control-playMusic) + var(--height-content-header)));
+
+    .placeholder_img {
+        height: 220px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
 }
 
 .album_left {
@@ -12,7 +18,36 @@
     flex-direction: column;
     text-align: center;
 
-    .img {
+    .left_img {
+        position: relative;
+        cursor: pointer;
+        border-radius: 5px;
+        overflow: hidden;
+
+        .img {
+            transition: transform 0.3s linear;
+        }
+
+        &:hover {
+            .play {
+                display: flex;
+            }
+
+            .img {
+                transform: scale(1.1);
+            }
+        }
+
+        .play {
+            position: absolute;
+            inset: 0;
+            background-color: var(--bg-cover-img);
+            z-index: 1;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+        }
     }
 }
 
@@ -34,7 +69,7 @@
             font-size: 2rem;
             width: 100%;
             height: 100%;
-            background-color: rgba($color: #302f2f, $alpha: 0.5);
+            background-color: var(--bg-cover-img);
             display: none;
             justify-content: center;
             align-items: center;
@@ -68,6 +103,10 @@
 
             .control {
                 display: flex;
+            }
+
+            .play {
+                display: none !important;
             }
 
             .disable {

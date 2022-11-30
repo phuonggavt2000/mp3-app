@@ -1,7 +1,7 @@
 import 'tippy.js/dist/tippy.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import publicRoutes from './routes/routes';
-import DefaultLayout from './layouts/defaultLayout/DefaultLayout';
+import DefaultLayout from './layouts/DefaultLayout/DefaultLayout';
 import config from './config';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

@@ -6,6 +6,7 @@ import styles from './Album.module.scss';
 import classNames from 'classnames/bind';
 import durationFormat from '../../utils/durationFormat';
 import { useState } from 'react';
+import WaveMusic from '../../components/WaveMusic.js/WaveMusic';
 
 const cx = classNames.bind(styles);
 
@@ -45,7 +46,7 @@ function Music({
                                 <div className={cx('play')}>{<icons.BsPlayFill />}</div>
 
                                 <div className={cx('control')}>
-                                    {playing && !loading && <icons.BsFillPauseFill />}
+                                    {playing && !loading && <WaveMusic />}
                                     {!playing && !loading && <icons.BsPlayFill />}
                                     {loading && <Spinner animation="border" />}
                                 </div>

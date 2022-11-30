@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import icons from '../../../utils/Icons';
 import Music from '../../../components/Music/Music';
 import { Row, Col } from 'react-bootstrap';
-import { ThemeContext } from '../../defaultLayout/DefaultLayout';
+import { ThemeContext } from '../../DefaultLayout/DefaultLayout';
 import moment from 'moment';
 import 'moment/locale/vi';
 

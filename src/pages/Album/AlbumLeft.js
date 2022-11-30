@@ -1,11 +1,10 @@
 import classNames from 'classnames/bind';
-import Image from '../../components/Image/Image';
 import styles from './Album.module.scss';
-import Button from 'react-bootstrap/Button';
 import icons from '../../utils/Icons';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import nFormatter from '../../utils/nFormatter';
+import { Button } from 'react-bootstrap';
 
 const cx = classNames.bind(styles);
 
@@ -15,8 +14,11 @@ function AlbumLeft({ title, timeStamp, artists = [], img, like }) {
 
     return (
         <div className={cx('album_left')}>
-            <div className={cx('img')}>
-                <Image src={img} />
+            <div className={cx('left_img')}>
+                <img src={img} alt={'error'} className={cx('img')} />
+                <div className={cx('play')}>
+                    <icons.BsPlayCircle />
+                </div>
             </div>
             <span className="fw-bold fs-6 mt-2 py-1 text-nowrap overflow-hidden">{title}</span>
             <div className="d-flex flex-column text-center fs-8">

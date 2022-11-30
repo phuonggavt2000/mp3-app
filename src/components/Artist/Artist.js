@@ -1,23 +1,18 @@
-import Image from '../../../components/Image/Image';
-import styles from './Slider.module.scss';
+import styles from './Artist.module.scss';
 import classNames from 'classnames/bind';
 import Slider from 'react-slick';
-import PrevArrow from '../../../components/PrevArrow/PrevArrow';
-import { useContext } from 'react';
-import { ThemeContext } from '../../DefaultLayout/DefaultLayout';
-import data from '../../../data';
-import NextArrow from '../../../components/NextArrow/NextArrow';
+import Image from '../Image/Image';
+import NextArrow from '../NextArrow/NextArrow';
+import PrevArrow from '../PrevArrow/PrevArrow';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function Slides() {
-    const datas = useContext(ThemeContext);
-    const items = datas.banner.items || data.slides;
-
+function Artist({ artists, title, getPlaylist }) {
     var settings = {
         dots: true,
         infinite: true,
-        slidesToShow: 3,
+        slidesToShow: 6,
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
@@ -57,18 +52,23 @@ function Slides() {
 
     return (
         <div className={cx('wrapper')}>
-            {items && (
+            <span className="fs-4 fw-bold mb-3 d-block ms-2">{title}</span>
+
+            {artists && (
                 <Slider {...settings}>
-                    {items.map((slide, index) => (
-                        <div
+                    {artists.map((artist, index) => (
+                        <Link
                             key={index}
                             className={cx('item')}
+                            to={artist.link}
                             onClick={() => {
-                                getDetail(slide.encodeId);
+                                getPlaylist(artist.encodeId);
                             }}
                         >
-                            <Image src={slide.banner} alt="ok" />
-                        </div>
+                            <div className={cx('img')}>
+                                <Image enlarge src={artist.thumbnailM} alt="ok" />
+                            </div>
+                        </Link>
                     ))}
                 </Slider>
             )}
@@ -76,4 +76,4 @@ function Slides() {
     );
 }
 
-export default Slides;
+export default Artist;

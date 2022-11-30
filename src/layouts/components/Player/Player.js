@@ -6,7 +6,7 @@ import { BiSkipPrevious, BiSkipNext } from 'react-icons/bi';
 import { BsArrowRepeat, BsPlayCircle, BsPauseCircle } from 'react-icons/bs';
 
 import { useState, useEffect, useContext } from 'react';
-import { ThemeContext } from '../../defaultLayout/DefaultLayout';
+import { ThemeContext } from '../../DefaultLayout/DefaultLayout';
 import PlayerLeft from './PlayerLeft';
 import vipAudio from '../../../assest/audios/audio';
 import ControlAudio from './Audio';

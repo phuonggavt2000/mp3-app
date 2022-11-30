@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 
 import { Row, Col } from 'react-bootstrap';
 import { useContext, useState } from 'react';
-import { ThemeContext } from '../../layouts/defaultLayout/DefaultLayout';
+import { ThemeContext } from '../../layouts/DefaultLayout/DefaultLayout';
 import Music from './Music';
 
 const cx = classNames.bind(styles);
