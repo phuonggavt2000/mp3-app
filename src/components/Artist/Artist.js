@@ -48,8 +48,6 @@ function Artist({ artists, title, getPlaylist }) {
         ],
     };
 
-    const getDetail = (id) => {};
-
     return (
         <div className={cx('wrapper')}>
             <span className="fs-4 fw-bold mb-3 d-block ms-2">{title}</span>
@@ -66,7 +64,7 @@ function Artist({ artists, title, getPlaylist }) {
                             }}
                         >
                             <div className={cx('img')}>
-                                <Image enlarge src={artist.thumbnailM} alt="ok" />
+                                <Image enlarge src={artist.thumbnail} alt="ok" />
                             </div>
                         </Link>
                     ))}

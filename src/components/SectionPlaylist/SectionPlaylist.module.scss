@@ -2,7 +2,7 @@
     overflow: hidden;
     padding: 0 12px;
     position: relative;
-    margin-top: 30px;
+    margin-top: 70px;
 
     .desc {
         font-size: 0.9rem;
@@ -10,7 +10,26 @@
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         color: var(--text-secondary);
+
+        &.artist {
+            display: none;
+        }
     }
+
+    .artist_name {
+        white-space: wrap;
+        line-height: normal;
+        display: none;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        color: var(--text-secondary);
+        margin-top: 4px;
+
+        &.artist {
+            display: -webkit-box;
+        }
+    }
+
     .wrapper_img {
         position: relative;
         border-radius: 4px;

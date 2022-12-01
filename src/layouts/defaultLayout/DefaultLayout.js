@@ -94,9 +94,12 @@ function DefaultLayout() {
         player: {},
         detailPlaylist: {},
         mix: {},
+        playlist: {},
+        playlist2: {},
+        weekChart: {},
+        artistSpotlight: {},
         banner: [],
         newMusic: [],
-        playlist: [],
         musics: [],
         playing: false,
         loading: true,
@@ -118,9 +121,20 @@ function DefaultLayout() {
             const newMusic = items.find((item) => item.sectionType === 'new-release');
             const playList = items.find((item) => item.sectionType === 'playlist');
             const mix = items.find((item) => item.sectionType === 'mix');
-            console.log('mix', mix);
+            const playlist2 = items.find((item) => item.sectionId === 'hAutoTheme2');
+            const weekChart = items.find((item) => item.sectionType === 'weekChart');
+            const artistSpotlight = items.find((item) => item.sectionType === 'artistSpotlight');
 
-            setData({ ...data, banner, newMusic, playlist: playList, mix: mix });
+            setData({
+                ...data,
+                banner,
+                newMusic,
+                playlist: playList,
+                mix: mix,
+                playlist2: playlist2,
+                weekChart: weekChart,
+                artistSpotlight: artistSpotlight,
+            });
         };
 
         getData();

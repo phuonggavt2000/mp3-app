@@ -20,8 +20,8 @@ function AlbumLeft({ title, timeStamp, artists = [], img, like }) {
                     <icons.BsPlayCircle />
                 </div>
             </div>
-            <span className="fw-bold fs-6 mt-2 py-1 text-nowrap overflow-hidden">{title}</span>
-            <div className="d-flex flex-column text-center fs-8">
+            <span className="fw-bold fs-5 mt-2 py-1  overflow-hidden">{title}</span>
+            <div className="d-flex flex-column text-center fs-7">
                 <div>
                     <span className="text-secondary mb-1 text-nowrap">Cập nhật: {lastUpdate}</span>
                 </div>

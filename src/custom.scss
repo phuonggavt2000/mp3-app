@@ -20,6 +20,12 @@ $font-sizes: (
     border-bottom: 1px solid #ffffff1a;
 }
 
+.text-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
 $modal-content-bg: #34224f;
 $secondary: hsla(0, 0%, 100%, 0.5);
 

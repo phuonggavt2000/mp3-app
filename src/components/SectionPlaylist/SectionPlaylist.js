@@ -4,10 +4,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import icons from '../../utils/Icons';
 import { Link } from 'react-router-dom';
+import Artist from '../Artist/Artist';
 
 const cx = classNames.bind(styles);
 
-function SectionPlaylist({ title, playlist, getPlaylist }) {
+function SectionPlaylist({ title, playlist, getPlaylist, artist }) {
     return (
         <div className={cx('wrapper')}>
             {playlist && (
@@ -16,7 +17,7 @@ function SectionPlaylist({ title, playlist, getPlaylist }) {
                     <Row className="gx-4">
                         {playlist.map((value, index) => (
                             <Col key={index}>
-                                <div className="d-flex flex-column">
+                                <div className="d-flex flex-column overflow-hidden">
                                     <Link
                                         to={value.link}
                                         className={cx('wrapper_img')}
@@ -40,7 +41,17 @@ function SectionPlaylist({ title, playlist, getPlaylist }) {
                                     >
                                         {value.title}
                                     </Link>
-                                    <span className={cx('desc')}>{value.sortDescription}</span>
+                                    <span className={cx('desc', { artist: artist })}>{value.sortDescription}</span>
+                                    <div className={cx('artist_name', { artist: artist })}>
+                                        {value.artists.map((artist, index) => (
+                                            <Link
+                                                className="text-secondary text-wrap fs-6 link-hover-primary pe-1"
+                                                key={index}
+                                            >
+                                                {artist.name}
+                                            </Link>
+                                        ))}
+                                    </div>
                                 </div>
                             </Col>
                         ))}

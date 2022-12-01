@@ -1,7 +1,7 @@
 const routes = {
-    home: '/',
+    profile: '/:name',
     category: '/category',
-    discovery: '/discovery',
+    discovery: '/',
     following: '/following',
     musicVideo: '/musicvideo',
     newMusic: '/newmusic',
@@ -10,6 +10,7 @@ const routes = {
     zingChart: '/zingchart',
     individual: '/individual',
     album: '/album/:nameAlbum/:id',
+    weekZingChart: '/zing-chart-tuan/:nameZingChart/:id',
 };
 
 export default routes;

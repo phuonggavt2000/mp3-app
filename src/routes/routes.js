@@ -3,7 +3,6 @@ import config from '../config';
 import Category from '../pages/Category/Category';
 import Discovery from '../pages/Discovery/Discovery';
 import Following from '../pages/Following/Following';
-import Home from '../pages/Home/Home';
 import MusicVideo from '../pages/MusicVideo/MusicVideo';
 import NewMusic from '../pages/NewMusic/NewMusic';
 import Radio from '../pages/Radio/Radio';
@@ -11,11 +10,13 @@ import Top100 from '../pages/Top100/Top100';
 import ZingChart from '../pages/ZingChart/ZingChart';
 import Individual from '../pages/Individual/Individual';
 import Album from '../pages/Album/Album';
+import WeekZingChart from '../pages/WeekZingChart/WeekZingChart';
+import Profile from '../pages/Profile/Profile';
 
 const publicRoutes = [
     {
-        path: config.routes.home,
-        component: Home,
+        path: config.routes.profile,
+        component: Profile,
     },
     {
         path: config.routes.following,
@@ -56,6 +57,10 @@ const publicRoutes = [
     {
         path: config.routes.album,
         component: Album,
+    },
+    {
+        path: config.routes.weekZingChart,
+        component: WeekZingChart,
     },
 ];
 
