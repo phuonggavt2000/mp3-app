@@ -98,6 +98,8 @@ function DefaultLayout() {
         playlist2: {},
         weekChart: {},
         artistSpotlight: {},
+        newRelease: {},
+        top100: {},
         banner: [],
         newMusic: [],
         musics: [],
@@ -124,6 +126,8 @@ function DefaultLayout() {
             const playlist2 = items.find((item) => item.sectionId === 'hAutoTheme2');
             const weekChart = items.find((item) => item.sectionType === 'weekChart');
             const artistSpotlight = items.find((item) => item.sectionType === 'artistSpotlight');
+            const top100 = items.find((item) => item.sectionId === 'h100');
+            const newRelease = items.find((item) => item.sectionId === 'hNewrelease');
 
             setData({
                 ...data,
@@ -134,6 +138,8 @@ function DefaultLayout() {
                 playlist2: playlist2,
                 weekChart: weekChart,
                 artistSpotlight: artistSpotlight,
+                top100: top100,
+                newRelease: newRelease,
             });
         };
 

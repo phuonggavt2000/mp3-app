@@ -5,9 +5,14 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 function PrevArrow(props) {
-    const { className, onClick } = props;
+    const { className, onClick, none } = props;
     return (
-        <div className={cx('prev')}>
+        <div
+            className={cx('prev')}
+            style={{
+                display: none,
+            }}
+        >
             <div className={className} onClick={onClick}>
                 <AiOutlineLeft />
             </div>

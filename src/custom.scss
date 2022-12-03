@@ -8,7 +8,7 @@ $theme-colors: (
 );
 
 $font-sizes: (
-    7: 13px,
+    7: 14px,
     8: 11px,
 );
 
@@ -24,6 +24,39 @@ $font-sizes: (
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+}
+
+.link-hover-primary:hover {
+    color: var(--purple-primary) !important;
+    text-decoration: underline !important;
+}
+
+.link-artist {
+    color: var(--text-secondary) !important;
+    font-size: 14;
+    margin-right: 2px;
+
+    &:not(:last-child):after {
+        content: ',';
+    }
+
+    &:hover {
+        color: var(--purple-primary) !important;
+        text-decoration: underline !important;
+    }
+}
+
+.text-second {
+    color: var(--text-secondary) !important;
+    font-size: 14;
+}
+
+.bg-ct-alpha {
+    background-color: var(--alpha-bg);
+}
+
+.hover-primary:hover {
+    color: var(--purple-primary) !important;
 }
 
 $modal-content-bg: #34224f;

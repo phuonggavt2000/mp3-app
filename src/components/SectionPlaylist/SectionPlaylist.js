@@ -4,7 +4,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import icons from '../../utils/Icons';
 import { Link } from 'react-router-dom';
-import Artist from '../Artist/Artist';
 
 const cx = classNames.bind(styles);
 
@@ -34,20 +33,18 @@ function SectionPlaylist({ title, playlist, getPlaylist, artist }) {
                                     </Link>
                                     <Link
                                         to={value.link}
-                                        className={cx('link')}
                                         onClick={() => {
                                             getPlaylist(value.encodeId);
                                         }}
+                                        className={cx('link')}
                                     >
                                         {value.title}
                                     </Link>
+
                                     <span className={cx('desc', { artist: artist })}>{value.sortDescription}</span>
                                     <div className={cx('artist_name', { artist: artist })}>
                                         {value.artists.map((artist, index) => (
-                                            <Link
-                                                className="text-secondary text-wrap fs-6 link-hover-primary pe-1"
-                                                key={index}
-                                            >
+                                            <Link className="link-artist fs-7" key={index}>
                                                 {artist.name}
                                             </Link>
                                         ))}

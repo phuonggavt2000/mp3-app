@@ -5,9 +5,14 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 function NextArrow(props) {
-    const { className, onClick } = props;
+    const { className, onClick, none } = props;
     return (
-        <div className={cx('next')}>
+        <div
+            className={cx('next')}
+            style={{
+                display: none,
+            }}
+        >
             <div className={className} onClick={onClick}>
                 <AiOutlineRight />
             </div>

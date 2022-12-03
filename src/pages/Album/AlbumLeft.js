@@ -25,9 +25,9 @@ function AlbumLeft({ title, timeStamp, artists = [], img, like }) {
                 <div>
                     <span className="text-secondary mb-1 text-nowrap">Cập nhật: {lastUpdate}</span>
                 </div>
-                <div className="d-flex justify-content-center mb-1 text-wrap">
+                <div className="d-flex justify-content-center mb-1 text-wrap ">
                     {artists.map((artist, index) => (
-                        <Link key={index} className="text-secondary text-nowrap link-hover-primary pe-1">
+                        <Link key={index} className="text-secondary text-nowrap link-hover-primary pe-1 link-artist">
                             {artist.name}
                         </Link>
                     ))}

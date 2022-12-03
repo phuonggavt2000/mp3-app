@@ -30,7 +30,7 @@ function Music({ name, adult, time, img, active, onClick, index }) {
                 </div>
             </div>
             <div className={cx('desc')}>
-                <span className={cx('name')}>{name}</span>
+                <span className=" text-capitalize">{name}</span>
                 <Link to={'/'} className={cx('adult')}>
                     {adult}
                 </Link>

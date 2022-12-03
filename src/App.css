@@ -35,7 +35,7 @@ body ::-webkit-scrollbar-track {
     --search-bg: #34224f;
     --text-secondary: hsla(0, 0%, 100%, 0.5);
     --border-primary: #ffffff1a;
-    --bg-cover-img: rgba(0, 0, 0, 0.3);
+    --bg-cover-img: rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -65,11 +65,6 @@ img {
 
 .prev {
     color: white;
-}
-
-.link-hover-primary:hover {
-    color: var(--purple-primary) !important;
-    text-decoration: underline !important;
 }
 
 .content-header {

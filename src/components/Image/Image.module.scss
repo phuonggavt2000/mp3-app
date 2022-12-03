@@ -4,4 +4,10 @@
     &:hover.enlarge {
         transform: scale(1.1);
     }
+
+    &.sponsor {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
 }
