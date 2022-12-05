@@ -10,18 +10,20 @@ import { ThemeContext } from '../../DefaultLayout/DefaultLayout';
 import PlayerLeft from './PlayerLeft';
 import vipAudio from '../../../assest/audios/audio';
 import ControlAudio from './Audio';
+import PlayerRight from './PlayerRight';
 
 const cx = classNames.bind(styles);
 
 function Player() {
     const data = useContext(ThemeContext);
-    const { img, name, adult, linkAudio, time = 177 } = data.player;
+    const { player, methodControlMusic, methodToggeSidebar, rightSidebar } = useContext(ThemeContext);
+    const { img, name, adult, linkAudio, time = 177 } = player;
 
     const [audio] = useState(new Audio(vipAudio.yeulacuoi));
     const [playing, setPlaying] = useState(data.playing);
 
     const toggle = () => {
-        data.methodControlMusic();
+        methodControlMusic();
     };
 
     useEffect(() => {
@@ -66,7 +68,7 @@ function Player() {
                 </div>
                 <ControlAudio duration={time} audio={audio} data={data} />
             </div>
-            <div className={cx('right')}> </div>
+            <PlayerRight active={rightSidebar} methodToggeSidebar={methodToggeSidebar} />
         </div>
     );
 }

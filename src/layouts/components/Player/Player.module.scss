@@ -8,6 +8,7 @@
     align-items: center;
     border-top: 1px solid hsla(0, 0%, 100%, 0.1);
     user-select: none;
+    padding: 0 20px;
 
     .left {
         height: 100%;
@@ -139,12 +140,33 @@
 
             .right_time {
                 font-size: 13px;
+                margin-left: auto;
             }
         }
     }
 
     .right {
         width: 30%;
+        display: flex;
+
+        .display-sidebar {
+            height: 40px;
+            width: 40px;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 4px;
+
+            &:hover {
+                background-color: var(--alpha-bg);
+                cursor: pointer;
+            }
+
+            &.active {
+                background-color: var(--purple-primary);
+            }
+        }
     }
 }
 

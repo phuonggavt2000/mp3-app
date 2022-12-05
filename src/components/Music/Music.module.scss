@@ -1,10 +1,5 @@
 .music {
-    padding: 6px 10px;
     border-radius: 5px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    position: relative;
 
     &:hover {
         background-color: var(--alpha-bg);

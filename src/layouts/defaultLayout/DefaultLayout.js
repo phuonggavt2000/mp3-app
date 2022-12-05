@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { getDetailPlaylist, getInfo, getSong } from '../../services/homeService';
 import ModalSm from '../../components/Modal/Modal';
 import dataHome from '../../data/dataHome';
+import RightSidebar from '../components/RightSidebar/RightSidebar';
 
 export const ThemeContext = createContext();
 
@@ -90,6 +91,15 @@ function DefaultLayout() {
         getData();
     };
 
+    const toggleRightSidebar = () => {
+        setData((prev) => {
+            return {
+                ...prev,
+                rightSidebar: !prev.rightSidebar,
+            };
+        });
+    };
+
     const defaultData = {
         player: {},
         detailPlaylist: {},
@@ -106,9 +116,11 @@ function DefaultLayout() {
         playing: false,
         loading: true,
         loadPage: false,
+        rightSidebar: false,
         methodRenderSong: handleChangeSong,
         methodControlMusic: controlMusic,
         methodGetPlaylist: getPlaylist,
+        methodToggeSidebar: toggleRightSidebar,
         currentMusic: 0,
     };
 
@@ -160,6 +172,7 @@ function DefaultLayout() {
                     </div>
                     <Player />
                 </div>
+                <RightSidebar active={data.rightSidebar} />
             </div>
             <ModalSm smShow={smShow} onHide={() => setSmShow(false)} />
         </ThemeContext.Provider>

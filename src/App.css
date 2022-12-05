@@ -28,14 +28,15 @@ body ::-webkit-scrollbar-track {
     --sidebar-bg: hsla(0, 0%, 100%, 0.05);
     --link-color: #f1f3f4;
     --purple-primary: #9b4de0;
-    --control-playMusic: 90px;
-    --height-content-header: 70px;
     --alpha-bg: hsla(0, 0%, 100%, 0.1);
-    --create-list-height: 54px;
     --search-bg: #34224f;
     --text-secondary: hsla(0, 0%, 100%, 0.5);
     --border-primary: #ffffff1a;
     --bg-cover-img: rgba(0, 0, 0, 0.5);
+    --width-right-sidebar: 330px;
+    --control-playMusic: 90px;
+    --height-content-header: 70px;
+    --create-list-height: 54px;
 }
 
 body {
@@ -72,6 +73,7 @@ img {
     position: fixed;
     inset: 0 0 auto 240px;
     z-index: 10;
+    margin-right: var(--width-right-sidebar);
 }
 
 .content-container {
@@ -85,6 +87,7 @@ img {
     overflow: auto;
     position: relative;
     width: 100%;
+    margin-right: var(--width-right-sidebar);
 }
 
 /* Sidebar */

@@ -69,26 +69,29 @@ function NewMusic() {
             {music && (
                 <div className={cx('musics')}>
                     <Row className="gy-2 gx-4">
-                        {music[active].map((value, index) => (
-                            <Col key={index} xs={6} lg={4}>
-                                <Music
-                                    name={value.title}
-                                    adult={value.artistsNames}
-                                    img={value.thumbnail}
-                                    time={moment.unix(value.releaseDate).fromNow()}
-                                    onClick={() => {
-                                        if (value.title === data.player.name) {
-                                            data.methodControlMusic();
-                                        } else {
-                                            setActiveMusic(index);
-                                            data.methodRenderSong(value.encodeId);
-                                        }
-                                    }}
-                                    active={activeMusic}
-                                    index={index}
-                                />
-                            </Col>
-                        ))}
+                        {music[active].map((value, index) => {
+                            const active = index === activeMusic;
+                            return (
+                                <Col key={index} xs={6} lg={4}>
+                                    <Music
+                                        name={value.title}
+                                        adult={value.artistsNames}
+                                        img={value.thumbnail}
+                                        time={moment.unix(value.releaseDate).fromNow()}
+                                        onClick={() => {
+                                            if (value.title === data.player.name) {
+                                                data.methodControlMusic();
+                                            } else {
+                                                setActiveMusic(index);
+                                                data.methodRenderSong(value.encodeId);
+                                            }
+                                        }}
+                                        active={active}
+                                        className="py-2"
+                                    />
+                                </Col>
+                            );
+                        })}
                     </Row>
                 </div>
             )}
