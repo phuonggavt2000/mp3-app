@@ -73,7 +73,6 @@ img {
     position: fixed;
     inset: 0 0 auto 240px;
     z-index: 10;
-    margin-right: var(--width-right-sidebar);
 }
 
 .content-container {
@@ -87,7 +86,6 @@ img {
     overflow: auto;
     position: relative;
     width: 100%;
-    margin-right: var(--width-right-sidebar);
 }
 
 /* Sidebar */
@@ -112,6 +110,12 @@ img {
     inset: 0;
     padding-top: 50px;
     padding-bottom: var(--create-list-height);
+}
+
+.sidebar-logo {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
 }
 
 .logo {

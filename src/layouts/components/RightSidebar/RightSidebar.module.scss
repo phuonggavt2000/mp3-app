@@ -4,7 +4,7 @@
     position: fixed;
     inset: 0 0 0 auto;
     margin-bottom: var(--control-playMusic);
-    z-index: 1;
+    z-index: 11;
     overflow: hidden;
     padding: 20px 10px;
     border-left: solid 1px var(--border-primary);
@@ -36,22 +36,18 @@
 
 @keyframes active-sidebar {
     0% {
-        opacity: 0;
         transform: translateX(330px);
     }
     100% {
-        opacity: 1;
         transform: translateX(0);
     }
 }
 
 @keyframes inactive-sidebar {
     0% {
-        opacity: 1;
         transform: translateX(0);
     }
     100% {
         transform: translateX(330px);
-        opacity: 0;
     }
 }

@@ -78,6 +78,7 @@ function NewMusic() {
                                         adult={value.artistsNames}
                                         img={value.thumbnail}
                                         time={moment.unix(value.releaseDate).fromNow()}
+                                        artists={value.artists}
                                         onClick={() => {
                                             if (value.title === data.player.name) {
                                                 data.methodControlMusic();

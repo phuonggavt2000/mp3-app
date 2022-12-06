@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Player from '../components/Player/Player';
 import { createContext, useEffect } from 'react';
 import { useState } from 'react';
-import { getDetailPlaylist, getInfo, getSong } from '../../services/homeService';
+import { getDetailPlaylist, getHome, getInfo, getSong } from '../../services/homeService';
 import ModalSm from '../../components/Modal/Modal';
 import dataHome from '../../data/dataHome';
 import RightSidebar from '../components/RightSidebar/RightSidebar';
@@ -128,7 +128,7 @@ function DefaultLayout() {
 
     useEffect(() => {
         const getData = async () => {
-            const items = dataHome.data.items;
+            const items = await getHome();
             console.log('items', items);
 
             const banner = items.find((item) => item.sectionType === 'banner');

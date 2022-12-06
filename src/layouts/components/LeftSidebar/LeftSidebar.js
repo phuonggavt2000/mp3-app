@@ -18,7 +18,7 @@ function LeftSidebar() {
 
     return (
         <Nav className="sidebar">
-            <Link as={Link} to="/">
+            <Link as={Link} to="/" className="sidebar-logo">
                 <img className="logo " src={images.logo} />
             </Link>
             <div className="d-flex flex-column sidebar__container">

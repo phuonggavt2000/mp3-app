@@ -10,7 +10,7 @@ import WaveMusic from '../WaveMusic.js/WaveMusic';
 
 const cx = classNames.bind(styles);
 
-function Music({ name, adult, time, img, active, onClick, heightImg, widthImg, className }) {
+function Music({ name, adult, time, img, active, onClick, heightImg, widthImg, className, artists = [] }) {
     const data = useContext(ThemeContext);
 
     return (
@@ -36,9 +36,12 @@ function Music({ name, adult, time, img, active, onClick, heightImg, widthImg, c
                 </div>
                 <div className={cx('desc')}>
                     <span className=" text-capitalize">{name}</span>
-                    <Link to={'/'} className={cx('adult')}>
-                        {adult}
-                    </Link>
+                    <div className="d-flex my-1">
+                        {artists.map((artist, index) => (
+                            <Link className="link-artist fs-8">{artist.name}</Link>
+                        ))}
+                    </div>
+
                     <span className={cx('time')}>{time}</span>
                 </div>
             </div>

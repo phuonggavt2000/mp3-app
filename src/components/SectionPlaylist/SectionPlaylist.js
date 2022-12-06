@@ -44,7 +44,7 @@ function SectionPlaylist({ title, playlist, getPlaylist, artist }) {
                                     <span className={cx('desc', { artist: artist })}>{value.sortDescription}</span>
                                     <div className={cx('artist_name', { artist: artist })}>
                                         {value.artists.map((artist, index) => (
-                                            <Link className="link-artist fs-7" key={index}>
+                                            <Link className="link-artist fs-7 " key={index}>
                                                 {artist.name}
                                             </Link>
                                         ))}
